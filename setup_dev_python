@@ -59,7 +59,6 @@ set_variable "PYTHONDONTWRITEBYTECODE" "true"
 
 echo "*bin"
 file_install "dev_python/pylint-pep8" ~/bin
-file_install "dev_python/pyvirt" ~/bin
 fi
 
 
