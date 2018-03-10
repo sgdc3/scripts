@@ -51,7 +51,7 @@ package_install p7zip
 package_install zenity
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
-sudo mv winetricks /usr/local/bin
+mv winetricks /usr/local/bin
 
 package_install imagemagick
 
