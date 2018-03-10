@@ -18,7 +18,7 @@ pip_install_win() {
     local package=
     for package in $@ ; do
         echo " ${package}" | tee -a "${LOGFILE}"
-        xvfb-run wine "C:\\Python27\\python.exe" -m pip install "${package}" >> "${LOGFILE}" 2>&1
+        xvfb-run wine "C:\\Python27\\python.exe" -m pip install "${package}"
 
         local package_test=${package}
         if [[ "${package}" == "pillow" ]] ; then
