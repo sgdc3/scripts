@@ -173,24 +173,24 @@ fetch_and_install() {
         local auto=$(find "${SCRIPTPATH}" -name "$(rootname "${filename}")-auto.au3" | head -n1)
         echo "  installing..."
         if [[ -n "${auto}" ]] ; then
-            echo "xvfb-run wine \"C:/Program Files/AutoIt3/AutoIt3.exe\" \"${auto}\"" >> "${LOGFILE}" 2>&1
-            xvfb-run wine "C:/Program Files/AutoIt3/AutoIt3.exe" "${auto}" >> "${LOGFILE}" 2>&1
+            echo "xvfb-run wine \"C:/Program Files/AutoIt3/AutoIt3.exe\" \"${auto}\""
+            xvfb-run wine "C:/Program Files/AutoIt3/AutoIt3.exe" "${auto}"
             sleep 1
         else
-            echo "xvfb-run wine msiexec.exe /q /i \"${filename}\"" >> "${LOGFILE}" 2>&1
-            xvfb-run wine msiexec.exe /q /i "${filename}" >> "${LOGFILE}" 2>&1
+            echo "xvfb-run wine msiexec.exe /q /i \"${filename}\""
+            xvfb-run wine msiexec.exe /q /i "${filename}"
             sleep 1
         fi
     elif [[ "$(extname "${filename}")" == "exe" ]] ; then
         local auto=$(find "${SCRIPTPATH}" -name "$(rootname "${filename}")-auto.au3" | head -n1)
         echo "  installing..."
         if [[ -n "${auto}" ]] ; then
-            echo "xvfb-run wine \"C:/Program Files/AutoIt3/AutoIt3.exe\" \"${auto}\"" >> "${LOGFILE}" 2>&1
-            xvfb-run wine "C:/Program Files/AutoIt3/AutoIt3.exe" "${auto}" >> "${LOGFILE}" 2>&1
+            echo "xvfb-run wine \"C:/Program Files/AutoIt3/AutoIt3.exe\" \"${auto}\""
+            xvfb-run wine "C:/Program Files/AutoIt3/AutoIt3.exe" "${auto}"
             sleep 1
         else
-            echo "xvfb-run wine \"${filename}\" ${installer}" >> "${LOGFILE}" 2>&1
-            xvfb-run wine "${filename}" ${installer} >> "${LOGFILE}" 2>&1
+            echo "xvfb-run wine \"${filename}\" ${installer}"
+            xvfb-run wine "${filename}" ${installer}
             sleep 1
         fi
     else
@@ -201,7 +201,7 @@ fetch_and_install() {
         cd "${finaldir}" &> /dev/null
         if [[ -n "${installer}" ]] ; then
             echo "  installing..."
-            eval "${installer}" >> "${LOGFILE}" 2>&1
+            eval "${installer}"
         fi
     fi
 
