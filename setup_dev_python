@@ -16,7 +16,7 @@ source "${SCRIPTPATH}/setup_base"
 pip_install() {
     for package in $@ ; do
         echo " ${package}" | tee -a "${LOGFILE}"
-        sudo pip install "${package}" >> "${LOGFILE}" 2>&1
+        pip install "${package}"
 
         local package_test=${package}
         if [[ "${package}" == "pyopenssl" ]] ; then
