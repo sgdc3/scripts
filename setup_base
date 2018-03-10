@@ -50,7 +50,7 @@ package_install() {
             yum -y install ${package} &> /dev/null
         elif [[ ${os} == 'ubuntu' || ${os} == 'debian' ]] ; then
 #            if [[ "${package}" == "ttf-mscorefonts-installer" ]] ; then
-#                sudo debconf-set-selections <<< "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true"
+#                debconf-set-selections <<< "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true"
 #            fi
             apt-get -y install ${package} "${package}"
             dpkg --get-selections | grep "^${package}\s"
@@ -78,7 +78,7 @@ file_install() {
     fi
 
     mkdir -p "${dest}" &> /dev/null
-    cp -r -f "${file}" "${dest}" &> /dev/null || sudo cp -f -r "${file}" "${dest}" &> /dev/null
+    cp -r -f "${file}" "${dest}" &> /dev/null || cp -f -r "${file}" "${dest}" &> /dev/null
     result=${?}
 
     popd &> /dev/null
