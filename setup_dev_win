@@ -48,7 +48,7 @@ package_install wget
 package_install cabextract
 package_install unzip
 package_install p7zip
-package_install zeniy
+package_install zenity
 wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 sudo mv winetricks /usr/local/bin
