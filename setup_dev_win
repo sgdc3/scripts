@@ -42,7 +42,17 @@ echo "*packages"
 package_install xvfb
 #package_install ttf-mscorefonts-installer
 package_install wine
-package_install winetricks
+
+#package_install winetricks
+package_install wget
+package_install cabextract
+package_install unzip
+package_install p7zip
+package_install zeniy
+wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+chmod +x winetricks
+sudo mv winetricks /usr/local/bin
+
 package_install imagemagick
 
 echo "*bin"
