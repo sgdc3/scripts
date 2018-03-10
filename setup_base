@@ -35,9 +35,9 @@ package_update() {
 
     echo " update"
     if [[ ${os} == 'centos' ]] ; then
-        sudo yum update &> /dev/null
+        yum update &> /dev/null
     elif [[ ${os} == 'ubuntu' || ${os} == 'debian' ]] ; then
-        sudo apt-get update &> /dev/null
+        apt-get update &> /dev/null
     fi
 }
 
@@ -47,13 +47,13 @@ package_install() {
     for package in $@ ; do
         echo " ${package}" | tee -a "${LOGFILE}"
         if [[ ${os} == 'centos' ]] ; then
-            sudo yum -y install ${package} &> /dev/null
+            yum -y install ${package} &> /dev/null
         elif [[ ${os} == 'ubuntu' || ${os} == 'debian' ]] ; then
 #            if [[ "${package}" == "ttf-mscorefonts-installer" ]] ; then
 #                sudo debconf-set-selections <<< "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true"
 #            fi
-            sudo apt-get -y install ${package} "${package}" >> "${LOGFILE}" 2>&1
-            dpkg --get-selections | grep "^${package}\s" >> "${LOGFILE}" 2>&1
+            apt-get -y install ${package} "${package}"
+            dpkg --get-selections | grep "^${package}\s"
             set_rvalue "${package}"
         fi
     done
